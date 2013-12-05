@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bing WebGL Demo - using babylon</title>
+    <link href="index.css" rel="stylesheet" />
+
+    <script src="scripts/jquery-2.0.3.min.js"></script>
+    <script src="scripts/hand.js"></script>
+
+
+    <!-- *ACK* Production-->
+    <script src="Babylon/babylon.js"></script>
+
+    <!-- *ACK* DEBUG -->
+    <!--<script src="Babylon/Tools/babylon.math.js"></script><script src="Babylon/Tools/babylon.tools.js"></script><script src="Babylon/babylon.engine.js"></script><script src="Babylon/babylon.node.js"></script><script src="Babylon/Culling/babylon.boundingSphere.js"></script><script src="Babylon/Culling/babylon.boundingBox.js"></script><script src="Babylon/Culling/babylon.boundingInfo.js"></script><script src="Babylon/Lights/babylon.light.js"></script><script src="Babylon/Lights/babylon.pointLight.js"></script><script src="Babylon/Lights/babylon.spotlight.js"></script><script src="Babylon/Lights/babylon.directionalLight.js"></script><script src="Babylon/Lights//Shadows/babylon.shadowGenerator.js"></script><script src="Babylon/Lights/babylon.hemisphericLight.js"></script><script src="Babylon/Collisions/babylon.collider.js"></script><script src="Babylon/Cameras/babylon.camera.js"></script><script src="Babylon/Cameras/babylon.freeCamera.js"></script><script src="Babylon/Cameras/babylon.touchCamera.js"></script><script src="Babylon/Cameras/babylon.deviceOrientationCamera.js"></script><script src="Babylon/Cameras/babylon.arcRotateCamera.js"></script><script src="Babylon/babylon.scene.js"></script><script src="Babylon/Mesh/babylon.vertexBuffer.js"></script><script src="Babylon/Mesh/babylon.mesh.js"></script><script src="Babylon/Mesh/babylon.subMesh.js"></script><script src="Babylon/Materials/textures/babylon.baseTexture.js"></script><script src="Babylon/Rendering/babylon.renderingGroup.js"></script><script src="Babylon/Rendering/babylon.renderingManager.js"></script><script src="Babylon/Materials/textures/babylon.texture.js"></script><script src="Babylon/Materials/textures/babylon.cubeTexture.js"></script><script src="Babylon/Materials/textures/babylon.renderTargetTexture.js"></script><script src="Babylon/Materials/textures/babylon.mirrorTexture.js"></script><script src="Babylon/Materials/textures/babylon.dynamicTexture.js"></script><script src="Babylon/Materials/textures/babylon.videoTexture.js"></script><script src="Babylon/Materials/babylon.effect.js"></script><script src="Babylon/Materials/babylon.material.js"></script><script src="Babylon/Materials/babylon.standardMaterial.js"></script><script src="Babylon/Materials/babylon.multiMaterial.js"></script><script src="Babylon/Tools/babylon.database.js"></script><script src="Babylon/Tools/babylon.sceneLoader.js"></script><script src="Babylon/Sprites/babylon.spriteManager.js"></script><script src="Babylon/Sprites/babylon.sprite.js"></script><script src="Babylon/Layer/babylon.layer.js"></script><script src="Babylon/Particles/babylon.particle.js"></script><script src="Babylon/Particles/babylon.particleSystem.js"></script><script src="Babylon/Animations/babylon.animation.js"></script><script src="Babylon/Animations/babylon.animatable.js"></script><script src="Babylon/Culling/Octrees/babylon.octree.js"></script><script src="Babylon/Culling/Octrees/babylon.octreeBlock.js"></script><script src="Babylon/Bones/babylon.bone.js"></script><script src="Babylon/Bones/babylon.skeleton.js"></script><script src="Babylon/PostProcess/babylon.postProcess.js"></script><script src="Babylon/PostProcess/babylon.postProcessManager.js"></script><script src="Babylon/PostProcess/babylon.passPostProcess.js"></script><script src="Babylon/PostProcess/babylon.blurPostProcess.js"></script><script src="Babylon/PostProcess/babylon.fxaaPostProcess.js"></script><script src="Babylon/PostProcess/babylon.refractionPostProcess.js"></script><script src="Babylon/PostProcess/babylon.blackAndWhitePostProcess.js"></script><script src="Babylon/PostProcess/babylon.convolutionPostProcess.js"></script><script src="Babylon/PostProcess/babylon.fxaaPostProcess.js"></script><script src="Babylon/LensFlare/babylon.lensFlare.js"></script><script src="Babylon/LensFlare/babylon.lensFlareSystem.js"></script><script src="Babylon/Collisions/babylon.pickingInfo.js"></script>-->
+   
+
+    <script type="text/javascript" src="scripts/mapUtilities.js"></script>
+    <script type="text/javascript" src="scripts/bingWebGL.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div id="controlPanel">
+        <div id="controlsZone">
+            <div id="leftPart">
+
+                <div style="display:block;">
+                    <label>recommended:</label>
+                    <select id="ddlRecommended" style="width: 290px; height: 25px">
+                        <option value="wp.0=44.402862,-73.873787&wp.1=44.367531, -73.906574">adirondacks - white face mountain</option>
+                        <option value="wp.0=9871%20Hana%20Hwy,%20Haiku,%20HI%2096708&wp.1=7828%20Hana%20Hwy,%20Haiku,%20HI%2096708">hawaii - haiku, hana highway</option>
+                        <option value="wp.0=46%20Mt%20Evans%20Rd,%20Idaho%20Springs,%20CO%2080452&wp.1=Mt%20Evans%20Rd,%20Idaho%20Springs,%20CO%2080452">colorado - mount evans road</option>
+                        <option value="wp.0=43.039622, -75.965363&wp.1=43.046083, -75.967895">new york - green lakes park</option>
+                        <option value="wp.0=22792%20N%20Willow%20Fishhook%20Rd,%20Palmer,%20AK%2099645&wp.1=19022%20W%20Willow%20Fishhook%20Rd,%20Palmer,%20AK%2099645">alaska - willow hook rd</option>
+                        <option value="wp.0=Tellico%20Plains,%20TN&wp.1=Santeetlah%20Gap,%20NC">tennesee - cherohala skyway</option>
+                        <option value="wp.0=34.616089,-111.843694&wp.1=34.611492,-111.839321">arizona - montezuma castle</option>
+
+                    </select>
+                    <a id="lnkGoThere1" href="#">go there!</a>
+                </div>
+                <div style="display:block;padding-top:20px;">
+                    <label>from: </label><input id="txtFrom" style="width: 290px" type="text" />
+                </div>
+                <div style="display:block;">
+                    <label>to: </label><input id="txtTo" style="width: 290px; " type="text" /> <a id="lnkGoThere2" href="#">go there!</a>
+                </div>
+                <div style="display:block;">
+                    <div id="divErrors" style="height:60px;" />
+                </div>
+                <div style="padding-top: 20px; font-size: 12px;">demo by <a href="http://www.andybeaulieu.com">Andy Beaulieu</a>. created with <a href="http://www.babylonjs.com">BabylonJS</a> and <a href="http://msdn.microsoft.com/en-us/library/ff701713.aspx">Bing</a> </div>
+            </div>
+            <div id="rightPart">
+
+
+
+            </div>
+        </div>
+        <div class="tag">
+            <img id="btnPlay" class="mediaButton" src="images/play.png" alt="play" />
+            <img id="btnPause" class="mediaButton" src="images/pause.png" alt="pause" />
+            <img id="btnFastForward" class="mediaButton" src="images/fastForward.png" alt="speed" /><div id="divPlaybackSpeed" style="display:inline;position:absolute;">1x</div>
+            <img id="btnOptions" class="mediaButton" style="margin-left:20px;" src="images/options.png" alt="options..." />
+        </div>
+    </div>
+</body>
+</html>
