@@ -10,7 +10,7 @@ namespace BingWebGL
 {
     public class ProxyController : ApiController
     {
-        const string _bingMapsKey = "*** ENTER YOUR BING MAPS API KEY HERE ***";
+        const string _bingMapsKey = " *** ENTER YOUR BING MAPS API KEY HERE *** ";
 
         [HttpPost]
         public string GetDirections([FromBody]string value)
