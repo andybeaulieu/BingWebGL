@@ -23,9 +23,12 @@ $(document).ready(function () {
     var _routeChanged = false;
     var _tileEngine;
 
+
+ 
     // Check support
     if (!BABYLON.Engine.isSupported()) {
-        window.alert('Browser not supported');
+        document.getElementById("notSupported").className = "";
+        document.getElementById("opacityMask").className = "";
     } else {
 
         // Babylon
