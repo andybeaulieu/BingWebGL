@@ -11,6 +11,13 @@ html, body, #canvas {
     overflow: hidden;
 }
 
+
+#canvas {
+    touch-action: none;
+    -ms-touch-action: none; 
+}
+
+
 a {
     color: black;
 }
